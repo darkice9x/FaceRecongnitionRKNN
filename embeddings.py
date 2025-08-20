@@ -23,7 +23,7 @@ class Embeddings(object):
             embedding = self.mobilefacenet.get_feat(face['face'])
             embedder_ret.append({'score':face['score'], 'embedding':embedding})
         return embedder_ret
-
+    '''
     def cosine_similarity(self, vec1, vec2):
         vec1 = vec1.reshape(1, -1)
 
@@ -33,11 +33,25 @@ class Embeddings(object):
 
         similarity = dot_product / (norm_vec1 * norm_vec2)
         return similarity
+    '''
+    def cosine_similarity(self, vec1, vec2):
+        """
+        vec1: (1,128)
+        vec2: (1,128)
+        """
+        # 벡터 정규화
+        v1 = vec1 / np.linalg.norm(vec1)
+        v2 = vec2 / np.linalg.norm(vec2)
+
+        # 내적 값 = cosine similarity
+        return float(np.dot(v1, v2.T))
         
     def compute_sim(self, embedding1, embedding2, thres=0.635):
         distance = self.cosine_similarity(embedding1, embedding2)
         return distance > thres
 
     def compare_face(self, embedding1, embedding2, thres=0.635):
+        #distance = self.cosine_similarity(embedding1, embedding2)
+        #return distance[0] > thres, distance[0]
         distance = self.cosine_similarity(embedding1, embedding2)
-        return distance[0] > thres, distance[0]
+        return distance > thres, distance
