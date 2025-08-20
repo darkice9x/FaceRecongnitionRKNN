@@ -176,8 +176,10 @@ class RetinaFace(object):
             leftEyeCenter = np.array([x3, y3])
             rightEyeCenter = np.array([x4, y4])
             nose = np.array([x5, y5])
-            #print( leftEyeCenter, rightEyeCenter, nose )
-            face_aligned = FaceAlign().align(img, nose, leftEyeCenter, rightEyeCenter)
-            faces = {'face' : face_aligned, 'score' : data[4], 'point1' : x1, 'point2': y1 + 12}
+
+            face_crop, face_aligned = FaceAlign().align(img, nose, leftEyeCenter, rightEyeCenter)
+            #face_org = FaceAlign().nonealign(img, nose, leftEyeCenter, rightEyeCenter)
+            #faces = {'face' : face_aligned, 'score' : data[4], 'leftEyeCenter' : leftEyeCenter, 'rightEyeCenter' : rightEyeCenter, 'nose' : nose}
+            faces = {'face' : face_aligned, 'face_crop' : face_crop, 'score' : data[4], 'leftEyeCenter' : leftEyeCenter, 'rightEyeCenter' : rightEyeCenter, 'nose' : nose}
             ret.append(faces)
         return ret
