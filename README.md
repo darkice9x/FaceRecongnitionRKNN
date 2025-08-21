@@ -47,4 +47,4 @@ facenet_mxnet_caffe만 가능
   match, cosine_similarity = embeddings.compare_face(feature1, feature2)
   print( f'name: {personname}, match: {match}, face_distances : {cosine_similarity}'  )
   ~~~
-  match가 True이고  cosine_similarity[0]가 가장 큰값이 가장 근접한 인식이다. 
+  match가 True이고  cosine_similarity가 가장 큰값이 가장 근접한 인식이다. 
