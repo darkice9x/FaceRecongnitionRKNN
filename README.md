@@ -59,6 +59,7 @@ facenet_mxnet_caffe만 가능
   from rknnlite.api import RKNNLite
   
   embeddings = Embeddings('./RetinaFace_mobile320_i8_v2.3.2.rknn', './rk3588_mobilefacenet/mobilefacenet_v2.3.2.rknn')
+  db = FaceDB(dim=128, db_path="./")
   img1 = cv2.imread(image1)
   get_face1 = embeddings.get_embeddings(img1)
   feature1 = get_face1[0]['embedding']
@@ -67,4 +68,5 @@ facenet_mxnet_caffe만 가능
         print(f'Face recognized: {result[0]["name"]}')
     else:
         print('Face not recognized')
+        db.add("personname", feature1)
   ~~~
