@@ -30,6 +30,7 @@ facenet_mxnet_caffe만 가능
   pip install pyside6==6.9.0
   conda install -c conda-forge libstdcxx-ng --update-deps -y
   pip install onvif-client
+  pip install faiss-cpu
   pip install rknn_toolkit_lite2-2.3.2-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
   ~~~
 -Python 
