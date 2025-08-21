@@ -37,6 +37,7 @@ facenet_mxnet_caffe만 가능
   ~~~python
   import cv2
   from embeddings import Embeddings
+  from rknnlite.api import RKNNLite
   
   embeddings = Embeddings('./RetinaFace_mobile320_i8_v2.3.2.rknn', './rk3588_mobilefacenet/mobilefacenet_v2.3.2.rknn')
   img1 = cv2.imread(image1)
@@ -49,3 +50,21 @@ facenet_mxnet_caffe만 가능
   print( f'name: {personname}, match: {match}, face_distances : {cosine_similarity}'  )
   ~~~
   match가 True이고  cosine_similarity가 가장 큰값이 가장 근접한 인식이다. 
+
+-faiss Python 
+  ~~~python
+  import cv2
+  from face_faiss_db import FaceDB
+  from embeddings import Embeddings
+  from rknnlite.api import RKNNLite
+  
+  embeddings = Embeddings('./RetinaFace_mobile320_i8_v2.3.2.rknn', './rk3588_mobilefacenet/mobilefacenet_v2.3.2.rknn')
+  img1 = cv2.imread(image1)
+  get_face1 = embeddings.get_embeddings(img1)
+  feature1 = get_face1[0]['embedding']
+  result = db.search(feature1)
+    if result :
+        print(f'Face recognized: {result[0]["name"]}')
+    else:
+        print('Face not recognized')
+  ~~~
