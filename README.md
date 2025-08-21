@@ -35,10 +35,6 @@ facenet_mxnet_caffe만 가능
 -Python 
   ~~~python
   import cv2
-  import sys
-  import numpy as np
-  import os
-  import time
   from embeddings import Embeddings
   
   embeddings = Embeddings('./RetinaFace_mobile320_i8_v2.3.2.rknn', './rk3588_mobilefacenet/mobilefacenet_v2.3.2.rknn')
@@ -49,6 +45,6 @@ facenet_mxnet_caffe만 가능
   get_face2 = embeddings.get_embeddings(img2)
   feature2 = get_face2[0]['embedding']
   match, cosine_similarity = embeddings.compare_face(feature1, feature2)
-  print( f'name: {personname}, match: {match}, face_distances : {cosine_similarity[0]}'  )
+  print( f'name: {personname}, match: {match}, face_distances : {cosine_similarity}'  )
   ~~~
   match가 True이고  cosine_similarity[0]가 가장 큰값이 가장 근접한 인식이다. 
