@@ -121,7 +121,7 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>430</y>
+        <y>450</y>
         <width>100</width>
         <height>26</height>
        </rect>
@@ -228,6 +228,19 @@
        <string>RIGHT</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="dbButton">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>410</y>
+        <width>100</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>NEW DB 생성</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -253,7 +266,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>556</x>
-     <y>477</y>
+     <y>522</y>
     </hint>
     <hint type="destinationlabel">
      <x>484</x>
@@ -325,6 +338,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>dbButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>db_button_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>613</x>
+     <y>469</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>564</x>
+     <y>32</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>save_button_clicked()</slot>
@@ -332,5 +361,6 @@
   <slot>down_button_clicked()</slot>
   <slot>right_button_clicked()</slot>
   <slot>left_button_clicked()</slot>
+  <slot>db_button_clicked()</slot>
  </slots>
 </ui>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Face_OverlayZlLwwD.ui'
+## Form generated from reading UI file 'Face_OverlaykLJsNR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.9.0
 ##
@@ -61,7 +61,7 @@ class Ui_MainWindow(object):
         self.label_3.setGeometry(QRect(0, 185, 108, 18))
         self.saveButton = QPushButton(self.frame_3)
         self.saveButton.setObjectName(u"saveButton")
-        self.saveButton.setGeometry(QRect(20, 430, 100, 26))
+        self.saveButton.setGeometry(QRect(20, 450, 100, 26))
         self.lineEdit = QLineEdit(self.frame_3)
         self.lineEdit.setObjectName(u"lineEdit")
         self.lineEdit.setGeometry(QRect(0, 210, 128, 26))
@@ -86,6 +86,9 @@ class Ui_MainWindow(object):
         self.rightButton = QPushButton(self.frame_3)
         self.rightButton.setObjectName(u"rightButton")
         self.rightButton.setGeometry(QRect(65, 340, 60, 26))
+        self.dbButton = QPushButton(self.frame_3)
+        self.dbButton.setObjectName(u"dbButton")
+        self.dbButton.setGeometry(QRect(20, 410, 100, 26))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -101,6 +104,7 @@ class Ui_MainWindow(object):
         self.rightButton.clicked.connect(MainWindow.right_button_clicked)
         self.leftButton.clicked.connect(MainWindow.left_button_clicked)
         self.upButton.clicked.connect(MainWindow.up_button_clicked)
+        self.dbButton.clicked.connect(MainWindow.db_button_clicked)
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
@@ -117,5 +121,6 @@ class Ui_MainWindow(object):
         self.downButton.setText(QCoreApplication.translate("MainWindow", u"DOWN", None))
         self.leftButton.setText(QCoreApplication.translate("MainWindow", u"LEFT", None))
         self.rightButton.setText(QCoreApplication.translate("MainWindow", u"RIGHT", None))
+        self.dbButton.setText(QCoreApplication.translate("MainWindow", u"NEW DB \uc0dd\uc131", None))
     # retranslateUi
 
