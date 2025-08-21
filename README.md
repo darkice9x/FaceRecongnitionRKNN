@@ -34,6 +34,13 @@ facenet_mxnet_caffe만 가능
   ~~~
 -Python 
   ~~~python
+  import cv2
+  import sys
+  import numpy as np
+  import os
+  import time
+  from embeddings import Embeddings
+  
   embeddings = Embeddings('./RetinaFace_mobile320_i8_v2.3.2.rknn', './rk3588_mobilefacenet/mobilefacenet_v2.3.2.rknn')
   img1 = cv2.imread(image1)
   get_face1 = embeddings.get_embeddings(img1)
