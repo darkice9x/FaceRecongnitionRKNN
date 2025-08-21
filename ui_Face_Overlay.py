@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Face_OverlaycEVqZI.ui'
+## Form generated from reading UI file 'Face_OverlayZlLwwD.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.9.0
 ##
@@ -61,10 +61,10 @@ class Ui_MainWindow(object):
         self.label_3.setGeometry(QRect(0, 185, 108, 18))
         self.saveButton = QPushButton(self.frame_3)
         self.saveButton.setObjectName(u"saveButton")
-        self.saveButton.setGeometry(QRect(10, 430, 100, 26))
+        self.saveButton.setGeometry(QRect(20, 430, 100, 26))
         self.lineEdit = QLineEdit(self.frame_3)
         self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setGeometry(QRect(0, 210, 108, 26))
+        self.lineEdit.setGeometry(QRect(0, 210, 128, 26))
         self.label_4 = QLabel(self.frame_3)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QRect(0, 10, 108, 18))
@@ -73,7 +73,7 @@ class Ui_MainWindow(object):
         self.label_5.setGeometry(QRect(0, 250, 66, 18))
         self.lineEdit_2 = QLineEdit(self.frame_3)
         self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setGeometry(QRect(0, 275, 113, 26))
+        self.lineEdit_2.setGeometry(QRect(0, 275, 127, 26))
         self.upButton = QPushButton(self.frame_3)
         self.upButton.setObjectName(u"upButton")
         self.upButton.setGeometry(QRect(32, 310, 60, 26))

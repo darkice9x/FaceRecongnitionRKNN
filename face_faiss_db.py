@@ -34,7 +34,7 @@ class FaceDB:
         self.meta.append(name)
         self.save()
 
-    def search(self, embedding, top_k=1):
+    def search(self, embedding, threshold=0.635, top_k=1):
         """가장 가까운 얼굴 검색"""
         if embedding.ndim == 1:
             embedding = embedding.reshape(1, -1)
@@ -46,7 +46,8 @@ class FaceDB:
         for idx, score in zip(I[0], D[0]):
             if idx == -1:
                 continue
-            results.append({"name": self.meta[idx], "score": float(score)})
+            if score >= threshold:
+                results.append({"name": self.meta[idx], "score": float(score)})
         return results
 
     def search_by_name(self, name):

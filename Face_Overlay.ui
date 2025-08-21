@@ -120,7 +120,7 @@
      <widget class="QPushButton" name="saveButton">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>20</x>
         <y>430</y>
         <width>100</width>
         <height>26</height>
@@ -135,7 +135,7 @@
        <rect>
         <x>0</x>
         <y>210</y>
-        <width>108</width>
+        <width>128</width>
         <height>26</height>
        </rect>
       </property>
@@ -171,7 +171,7 @@
        <rect>
         <x>0</x>
         <y>275</y>
-        <width>113</width>
+        <width>127</width>
         <height>26</height>
        </rect>
       </property>
