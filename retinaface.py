@@ -158,20 +158,21 @@ class RetinaFace(object):
         dets = dets[keep, :]
         landmarks = landmarks[keep]
         dets = np.concatenate((dets, landmarks), axis=1)
-        ret = []
-        for data in dets:
-            if float(data[4]) < 0.6:
+
+        results = []
+        for det, lm in zip(dets, landmarks):
+            if float(det[4]) < 0.6:
                 continue
-            x1 = int(data[0])
-            y1 = int(data[1])
-            x2 = int(data[2])
-            y2 = int(data[3])
-            x3 = int(data[5])
-            y3 = int(data[6])
-            x4 = int(data[7])
-            y4 = int(data[8])
-            x5 = int(data[9])
-            y5 = int(data[10])
+            x1 = int(det[0])
+            y1 = int(det[1])
+            x2 = int(det[2])
+            y2 = int(det[3])
+            x3 = int(det[5])
+            y3 = int(det[6])
+            x4 = int(det[7])
+            y4 = int(det[8])
+            x5 = int(det[9])
+            y5 = int(det[10])
             
             leftEyeCenter = np.array([x3, y3])
             rightEyeCenter = np.array([x4, y4])
@@ -180,6 +181,14 @@ class RetinaFace(object):
             face_crop, face_aligned = FaceAlign().align(img, nose, leftEyeCenter, rightEyeCenter)
             #face_org = FaceAlign().nonealign(img, nose, leftEyeCenter, rightEyeCenter)
             #faces = {'face' : face_aligned, 'score' : data[4], 'leftEyeCenter' : leftEyeCenter, 'rightEyeCenter' : rightEyeCenter, 'nose' : nose}
-            faces = {'face' : face_aligned, 'face_crop' : face_crop, 'score' : data[4], 'leftEyeCenter' : leftEyeCenter, 'rightEyeCenter' : rightEyeCenter, 'nose' : nose}
-            ret.append(faces)
-        return ret
+            results.append({
+                "face" : face_aligned, 
+                "face_crop" : face_crop,
+                "bbox": det[:4].tolist(),        # [x1, y1, x2, y2]
+                "score": float(det[4]),           # 감지 신뢰도 점수 (float)
+                "landmarks": lm.tolist() ,        # 랜드마크 좌표 리스트
+                "leftEyeCenter" : leftEyeCenter, 
+                "rightEyeCenter" : rightEyeCenter, 
+                "nose" : nose
+            })
+        return results
